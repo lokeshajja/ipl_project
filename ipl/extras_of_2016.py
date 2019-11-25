@@ -65,45 +65,32 @@ for match_id in deliveries_data[1:]:
 
 
 
+for id_data in match_id_data :
+    match_id_data[id_data]=np.array(match_id_data[id_data])
+#print(match_id_data)
 
-
-#print(match_id_data)         # only last delivery data is getting saved**                 
-
+##match id data is in the form of dict of ''nd.arrays''
+#print((match_id_data[id_data]))
+#print()
+#print(type(match_id_data))         # only last delivery data is getting saved**                 
 #extra runs index = 15 
 
 extra_runs_data={}
-for ids in matches_of_2k16:
-    #print(ids)
-    extra_runs=match_id_data[str(ids)]
-    batting_team=match_id_data[str(ids)][1]
-    bowling_team=match_id_data[str(ids)][2]
-    #print(extra_runs)
-    #print(bowling_team)
-    #print(batting_team)
+for id_data1 in match_id_data:
+    if id_data1 in matches_of_2k16:
+        for id_data2 in match_id_data[id_data1]:
+            if id_data2[2] in extra_runs_data:
+                extra_runs_data[id_data2[2]]+=int(id_data2[15])
 
-    '''#if bowling_team == 'Rising Pune Supergiants' or bowling_team == 'Rising Pune Supergiant' :
-       # bowling_team='Rising Pune Supergiants'
-    
-    if batting_team=='Rising Pune Supergiants' or batting_team == 'Rising Pune Supergiant':
-       batting_team='Rising Pune Supergiants'
+            elif id_data2[2] not in extra_runs_data:
+                extra_runs_data[id_data2[2]]=int(id_data2[15])
 
-    else:
-        pass
+            #print(id_data2[0])
+            
+print(extra_runs_data)
 
 
-    if  extra_runs_data[batting_team] in extra_runs_data:
-        extra_runs_data[batting_team]+=extra_runs
-
-    elif extra_runs_data[batting_team] not in extra_runs_data:
-        extra_runs_data[batting_team]=extra_runs
-
-    else:
-        pass'''
-
-
-#print(extra_runs_data)
-
-
+# successfull
 
 
 

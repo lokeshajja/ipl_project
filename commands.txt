@@ -1,0 +1,13 @@
+from matplotlib import pyplot as pyplot                        ##plotting package
+
+plt.plot(x-coordinates,y-coordinates)                          ##plots and saves in memory
+plt.show()                                                     ##presents a picture/window of plot
+plt.title('#title name')                                       ##gives a title/heading to graph
+plt.xlabel('#x-label name')                                    ##gives x-label a name
+plt.ylabel(''#y-label name)                                    ##gives y-lable a name
+from matplotlib import style                                   ##styling for graphs
+plt.legend()                                                   ##references of plotting clor and shape on the corner
+style.use('#name of the style' //ex :- #ggplot)                ##style of the graphs
+plt.plot(x, y, color=#color code, label=#name of plot line, linewidth=#integer value)    
+                                                               ##inside styling variables for line width and color
+plt.grid(True, color=#key name of color ex=k:black grid lines)

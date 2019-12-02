@@ -8,7 +8,7 @@ import numpy as np
 def main():
     plot_data=plotting_data()
     plot_of_extra_runs_given_per_team_in_2016(plot_data)
-    #print(plot_data)
+    
 
 
 if __name__=="__main__":

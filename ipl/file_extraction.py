@@ -4,21 +4,37 @@ import csv
 
 
 
-def  extract_file(file_name):
+
+
     
-    def extract_matches_data(file_name):
-        f=open('matches.csv','r')
-        raw_data=csv.DictReader(f)
-        data_array=list(raw_data)  
-        return data_array
+def extract_matches_data(file_name):
+    
+    file=open('matches.csv','r')
+    raw_data=csv.DictReader(file)
+    data_array=list(raw_data) 
 
-    def extract_deliveries_data(file_name):
-        f=open('deliveries.csv', 'r')
-        delivery_data=csv.DictReader(f)
-        delivery_stats=list(delivery_data)
 
-        return delivery_stats
+    return data_array
 
+
+
+
+
+def extract_deliveries_data(file_name):
+
+    file=open('deliveries.csv', 'r')
+    delivery_data=csv.DictReader(file)
+    delivery_stats=list(delivery_data)
+
+
+    return delivery_stats
+
+
+
+
+
+
+def  extract_file(file_name):
 
     if file_name=='matches.csv':
         matches_data=extract_matches_data(file_name)
@@ -27,10 +43,7 @@ def  extract_file(file_name):
         deliveries_data=extract_deliveries_data(file_name)   
         extracted_file_data=deliveries_data
     else:
-        f=open('mock_deliveries.csv','r')
-        raw_data=csv.DictReader(f)
-        data_array=list(raw_data)  
-        extracted_file_data = data_array
+        pass
         
 
     return extracted_file_data

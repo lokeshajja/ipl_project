@@ -22,12 +22,12 @@ def main():
 
 
 #Plots a stacked bar chart of matches won of all teams over all the years of IPL.
-    compute_and_plot_of_win_data()
+    #compute_and_plot_of_win_data()
 
 
 #For the year 2016 plot the extra runs conceded per team.
-    #plot_data=plotting_data()
-    #plot_of_extra_runs_given_per_team_in_2016(plot_data)
+    plot_data=plotting_data()
+    plot_of_extra_runs_given_per_team_in_2016(plot_data)
 
 
 #For the year 2015 plot the top economical bowlers.

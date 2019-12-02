@@ -8,7 +8,6 @@ from matplotlib import pyplot as plt
 
 
 def year_and_id_data(matches):
-    
     season='2016'
     matches_of_2016=[]
     for match in matches:
@@ -30,6 +29,7 @@ def id_wise_data(matches_of_2016,deliveries_data) :
     for ball in deliveries_data:
         if ball['match_id'] in ids:
             teams_and_extra_runs[ball['bowling_team']]=teams_and_extra_runs.get(ball['bowling_team'],0) + int(ball['extra_runs'])
+
     print(teams_and_extra_runs)
 
 

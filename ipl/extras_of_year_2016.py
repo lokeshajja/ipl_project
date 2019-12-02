@@ -35,7 +35,7 @@ def id_wise_data(matches_of_2016,deliveries_data) :
                 teams_and_extra_runs[d_data['bowling_team']]=int(d_data['extra_runs'])
             elif d_data['bowling_team'] in teams_and_extra_runs:
                 teams_and_extra_runs[d_data['bowling_team']]+=int(d_data['extra_runs'])
-    #print(teams_and_extra_runs)
+    print(teams_and_extra_runs)
     
     return teams_and_extra_runs
 

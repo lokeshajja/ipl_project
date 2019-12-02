@@ -88,7 +88,7 @@ def matches_won_by_each(matches):
         elif match_data1['winner'] not  in winner_data[match_data1['season']]:
             winner_data[match_data1['season']][match_data1['winner']]=1
 
-            
+    #print(winner_data)       
     return winner_data
     
 
@@ -97,4 +97,4 @@ def compute_and_plot_of_win_data():
     matches=extract_file('matches.csv')
     win_data=matches_won_by_each(matches)
     plot_of_win_data1(win_data)
-
+ 

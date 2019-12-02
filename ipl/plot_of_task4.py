@@ -19,6 +19,7 @@ def compute_and_plot_match_of_2015_1(ids_of_2015,deliveries_data):
 
     economy_data={}
     def economy_of_bowlers(bowler_data):
+        #print(bowler_data)
         for bowler,b_data in bowler_data.items():
             overs=int((b_data['del']))//6
             economy=int(b_data['runs'])/overs
@@ -26,7 +27,7 @@ def compute_and_plot_match_of_2015_1(ids_of_2015,deliveries_data):
             #print(b_data['del'])
             #print(b_data['runs'])
             #print(economy_data)
-
+        #print(economy_data)
         return economy_data
 
     economy_stats=economy_of_bowlers(bowler_data)
@@ -64,6 +65,8 @@ def compute_and_plot_match_of_2015_1(ids_of_2015,deliveries_data):
     plt.setp(plt.gca().get_xticklabels(),rotation=30,horizontalalignment='right')
     plt.show()
 
+    
+
 def matches_played_in_2015(matches):
     ids_of_2k15=[]
     for match_data in matches:
@@ -76,5 +79,16 @@ def compute_and_plot_most_economic_bowlers_of_2015(matches,deliveries_data):
     ids_of_2015=matches_played_in_2015(matches)
     compute_and_plot_match_of_2015_1(ids_of_2015,deliveries_data)
 
-
+def economy_of_bowlers(bowler_data):
+    economy_data={}
+    #print(bowler_data)
+    for bowler,b_data in bowler_data.items():
+        overs=int((b_data['del']))//6
+        economy=int(b_data['runs'])/overs
+        economy_data[bowler]=economy
+        #print(b_data['del'])
+        #print(b_data['runs'])
+        #print(economy_data)
+    #print(economy_data)
+    return economy_data
     

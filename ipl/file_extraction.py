@@ -27,7 +27,11 @@ def  extract_file(file_name):
         deliveries_data=extract_deliveries_data(file_name)   
         extracted_file_data=deliveries_data
     else:
-        pass
+        f=open('mock_deliveries.csv','r')
+        raw_data=csv.DictReader(f)
+        data_array=list(raw_data)  
+        extracted_file_data = data_array
+        
 
     return extracted_file_data
     

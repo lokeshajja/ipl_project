@@ -23,7 +23,7 @@ def compute_number_of_matches_yearwise1(matches):
             yr_ws_matches[match_1['season']]+=1
         else:
             pass
-    #print(yr_ws_matches)
+    print(yr_ws_matches)
     
 
     #print(yr_ws_matches)

@@ -17,12 +17,12 @@ def main():
 
 
 #plots number of matches played per year in all seasons    
-    matches=extract_file('matches.csv')
-    compute_and_plot_matches_played_per_year(matches)
+    #matches=extract_file('matches.csv')
+    #compute_and_plot_matches_played_per_year(matches)
 
 
 #Plots a stacked bar chart of matches won of all teams over all the years of IPL.
-    #compute_and_plot_of_win_data()
+    compute_and_plot_of_win_data()
 
 
 #For the year 2016 plot the extra runs conceded per team.

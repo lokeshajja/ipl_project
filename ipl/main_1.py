@@ -31,13 +31,13 @@ def main():
 
 
 #For the year 2015 plot the top economical bowlers.
-    matches=extract_file('matches.csv')
-    deliveries_data=extract_file('deliveries.csv')
-    compute_and_plot_most_economic_bowlers_of_2015(matches,deliveries_data)
+    #matches=extract_file('matches.csv')
+    #deliveries_data=extract_file('deliveries.csv')
+    #compute_and_plot_most_economic_bowlers_of_2015(matches,deliveries_data)
 
 
  #count the number of centuries scored in all the seasons of IPL   
-    #compute_centuries_data_over_all_years()
+    compute_centuries_data_over_all_years()
 
 
 

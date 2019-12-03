@@ -14,12 +14,13 @@ for mockdata in mock_data:
         mock_matches.append(mockdata)
         count+=1
 
-mock_data1=extract_file('deliveries.csv')
+
+delivery_data=extract_file('deliveries.csv')
 counts=0
 mock_deliveries=[]
-for mockdata1 in mock_data1:
+for ball_data in delivery_data:
     if counts<15:
-        mock_deliveries.append(mockdata1)
+        mock_deliveries.append(ball_data)
         counts+=1
 
 
@@ -27,17 +28,13 @@ for mockdata1 in mock_data1:
 
 
 class TestPlotData(unittest.TestCase):
+
     def test_id_wise_data(self):
+
         inputs_and_outputs=[((['1'],mock_deliveries),{'Royal Challengers Bangalore' : 4 }  )]
         for input,outputs in inputs_and_outputs:
             output = id_wise_data(input[0],input[1])
             self.assertEqual(output, outputs)
-
-
-
-
-
-
 
 
 

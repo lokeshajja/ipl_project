@@ -8,7 +8,7 @@ def economy_of_bowlers(bowler_data):
 
     economy_data={}
     for bowler,bowler_data in bowler_data.items():
-        overs=int((bowler_data['del']))//6
+        overs=int((bowler_data['balls']))//6
         economy=int(bowler_data['runs'])/overs
         economy_data[bowler]=economy
     
@@ -52,10 +52,10 @@ def compute_matches_of_2015(ids_of_2015,deliveries_data):
         if ball['match_id'] in ids_of_2015:
             if ball['bowler'] not in bowler_data:
                 bowler_data[ball['bowler']]={}
-                bowler_data[ball['bowler']]['del']=1
+                bowler_data[ball['bowler']]['balls']=1
                 bowler_data[ball['bowler']]['runs']=int(ball['total_runs'])
             elif ball['bowler'] in bowler_data:
-                bowler_data[ball['bowler']]['del']+=1
+                bowler_data[ball['bowler']]['balls']+=1
                 bowler_data[ball['bowler']]['runs']+=int(ball['total_runs'])
             else:
                 pass

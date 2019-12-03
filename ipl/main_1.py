@@ -26,14 +26,14 @@ def main():
 
 
 #For the year 2016 plot the extra runs conceded per team.
-    plot_data=plotting_data()
-    plot_of_extra_runs_given_per_team_in_2016(plot_data)
+    #plot_data=plotting_data()
+    #plot_of_extra_runs_given_per_team_in_2016(plot_data)
 
 
 #For the year 2015 plot the top economical bowlers.
-    #matches=extract_file('matches.csv')
-    #deliveries_data=extract_file('deliveries.csv')
-    #compute_and_plot_most_economic_bowlers_of_2015(matches,deliveries_data)
+    matches=extract_file('matches.csv')
+    deliveries_data=extract_file('deliveries.csv')
+    compute_and_plot_most_economic_bowlers_of_2015(matches,deliveries_data)
 
 
  #count the number of centuries scored in all the seasons of IPL   

@@ -1,6 +1,6 @@
 import unittest
 from file_extraction import extract_file
-from max_centuries import *
+from max_centuries import ids_of_each_year
 
 
 

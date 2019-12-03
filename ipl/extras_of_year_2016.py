@@ -42,5 +42,6 @@ def plot_of_extra_runs_given_by_each_team_in_2016(plot_data):
     plt.title('Extra Runs Given By Each Team In 2016')
     plt.xlabel('Teams')
     plt.ylabel('Extra Runs')
-    plt.setp(plt.gca().get_xticklabels(), rotation=30, horizontalalignment='right')
+    plt.setp(plt.gca().get_xticklabels(), rotation=30,
+             horizontalalignment='right')
     plt.show()

@@ -1,61 +1,67 @@
-def years_and_matches(matches):
+def compute_years_and_matches(matches):
 
     ids_yearwise = {}
     for id_data in matches:
         if id_data['season'] not in ids_yearwise:
             ids_yearwise[id_data['season']] = {}
 
-    ids_yearwise_sorted = {}
+    matches_of_each_season = {}
     for year in sorted(ids_yearwise.keys()):
-        ids_yearwise_sorted[year] = {}
+        matches_of_each_season[year] = {}
 
-    return ids_yearwise_sorted
-
-
-def batsman_wise_data(year_wise, deliveries_data):
-
-    for del_data in deliveries_data:
-        for year in year_wise:
-            if del_data['match_id'] in year_wise[str(year)]:
-                if del_data['batsman'] not in \
-                     year_wise[str(year)][del_data['match_id']]:
-                    year_wise[str(year)][del_data['match_id']][
-                        del_data['batsman']] = int(del_data['batsman_runs'])
-                elif del_data['batsman'] in \
-                        year_wise[str(year)][del_data['match_id']]:
-                    year_wise[str(year)][del_data['match_id']][
-                        del_data['batsman']] += int(del_data['batsman_runs'])
-
-    return year_wise
+    return matches_of_each_season
 
 
-def centuries_year_wise(matches, scores_year_wise, century_per_year):
+def compute_scores_of_each_batsman(matches_per_season, deliveries_data):
+
+    for ball in deliveries_data:
+        for year in matches_per_season:
+            if ball['match_id'] in matches_per_season[str(year)]:
+                if ball['batsman'] not in \
+                     matches_per_season[str(year)][ball['match_id']]:
+                    matches_per_season[str(year)][ball['match_id']][
+                        ball['batsman']] = int(ball['batsman_runs'])
+                elif ball['batsman'] in \
+                        matches_per_season[str(year)][ball['match_id']]:
+                    matches_per_season[str(year)][ball['match_id']][
+                        ball['batsman']] += int(ball['batsman_runs'])
+
+    return matches_per_season
+
+
+def calculate_centuries_of_all_seasons(matches, scores_year_wise,
+                                       centuries_of_each_season):
     for match in matches:
         for runs in scores_year_wise[match['season']][match['id']]:
             if int(scores_year_wise[match['season']][match['id']][runs]) >=\
                  100:
-                if runs not in century_per_year[match['season']]:
-                    century_per_year[match['season']][runs] = 1
-                else :
-                    century_per_year[match['season']][runs] += 1
+                if runs not in centuries_of_each_season[match['season']]:
+                    centuries_of_each_season[match['season']][runs] = 1
+                else:
+                    centuries_of_each_season[match['season']][runs] += 1
 
-    return century_per_year
+    return centuries_of_each_season
 
 
-def ids_of_each_year(year_wise_data, matches):
+def ids_of_each_year(years_and_ids, matches):
 
     for match in matches:
-        year_wise_data[match['season']][match['id']] = {}
+        years_and_ids[match['season']][match['id']] = {}
 
-    return year_wise_data
+    return years_and_ids
 
 
 def compute_centuries_data_over_all_years(matches, deliveries):
 
-    year_wise_data = years_and_matches(matches)
-    cent_per_year = years_and_matches(matches)
-    year_wise = ids_of_each_year(year_wise_data, matches)
-    scores_year_wise = batsman_wise_data(year_wise, deliveries)
-    centuries_per_year = centuries_year_wise(matches, scores_year_wise,
-                                             cent_per_year)
+    matches_played_per_season = compute_years_and_matches(matches)
+    centuries_of_each_season = compute_years_and_matches(matches)
+
+    season_and_ids = ids_of_each_year(matches_played_per_season, matches)
+
+    scores_of_all_seasons = compute_scores_of_each_batsman(season_and_ids,
+                                                           deliveries)
+    centuries_per_year =\
+        calculate_centuries_of_all_seasons(matches, scores_of_all_seasons,
+                                           centuries_of_each_season)
+
     print(centuries_per_year)

@@ -4,24 +4,17 @@ from max_centuries import ids_of_each_year
 
 
 mock_data = extract_data('matches.csv')
-count = 0
 mock_matches = []
-for mockdata in mock_data:
-    if count < 5:
-        mock_matches.append(mockdata)
-        count += 1
-
+for mockdata in mock_data[:5]:
+    mock_matches.append(mockdata)
 
 delivery_data = extract_data('deliveries.csv')
-serial = 0
 mock_deliveries = []
-for delivery in delivery_data:
-    if serial < 15:
-        mock_deliveries.append(delivery)
-        serial += 1
+for delivery in delivery_data[:15]:
+    mock_deliveries.append(delivery)
 
 
-class TestPlotData(unittest.TestCase):
+class TestCenturiesPerYear(unittest.TestCase):
 
     def test_ids_of_each_year(self):
 

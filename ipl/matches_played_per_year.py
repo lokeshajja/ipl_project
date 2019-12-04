@@ -23,7 +23,7 @@ def compute_number_of_matches_played_per_year(matches):
     return ordered_matches_played_per_year
 
 
-def compute_and_plot_matches_played_per_year(matches):
+def compute_and_plot_number_of_matches_played_per_year(matches):
 
     matches_played_per_year = \
         compute_number_of_matches_played_per_year(matches)

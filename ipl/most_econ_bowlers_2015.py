@@ -16,11 +16,10 @@ def calculate_economy_of_bowlers(bowler_data):
 def plot_top_economy_data(ordered_economy):
 
     top_economical_bowlers = []
-    count = 0
-    for avg in ordered_economy:
-        if count <= 10:
-            top_economical_bowlers.append(avg)
-            count += 1
+
+    for avg in ordered_economy[:9]:
+        top_economical_bowlers.append(avg)
+
     bowler = []
     average = []
 

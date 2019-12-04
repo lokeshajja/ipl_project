@@ -36,7 +36,7 @@ def centuries_year_wise(matches, scores_year_wise, century_per_year):
                  100:
                 if runs not in century_per_year[match['season']]:
                     century_per_year[match['season']][runs] = 1
-                elif runs in century_per_year[match['season']]:
+                else :
                     century_per_year[match['season']][runs] += 1
 
     return century_per_year

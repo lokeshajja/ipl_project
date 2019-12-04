@@ -1,9 +1,9 @@
 import unittest
-from file_extraction import extract_file
+from file_extraction import extract_data
 from max_centuries import ids_of_each_year
 
 
-mock_data = extract_file('matches.csv')
+mock_data = extract_data('matches.csv')
 count = 0
 mock_matches = []
 for mockdata in mock_data:
@@ -12,7 +12,7 @@ for mockdata in mock_data:
         count += 1
 
 
-delivery_data = extract_file('deliveries.csv')
+delivery_data = extract_data('deliveries.csv')
 serial = 0
 mock_deliveries = []
 for delivery in delivery_data:

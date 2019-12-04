@@ -1,9 +1,9 @@
 import unittest
-from file_extraction import extract_file
-from most_econ_bowlers_2015 import economy_of_bowlers
+from file_extraction import extract_data
+from most_econ_bowlers_2015 import calculate_economy_of_bowlers
 
 
-mock_data = extract_file('matches.csv')
+mock_data = extract_data('matches.csv')
 count = 0
 mock_matches = []
 for mockdata in mock_data:
@@ -12,7 +12,7 @@ for mockdata in mock_data:
         count += 1
 
 
-delivery_data = extract_file('deliveries.csv')
+delivery_data = extract_data('deliveries.csv')
 serial = 0
 mock_deliveries = []
 for ball_data in delivery_data:
@@ -32,7 +32,7 @@ class TestPlotData(unittest.TestCase):
                         'Shakib Al Hasan': 5}
         inputs_and_outputs = [(bowler_data, economy_data)]
         for inputs, expected_output in inputs_and_outputs:
-            output = economy_of_bowlers(inputs)
+            output = calculate_economy_of_bowlers(inputs)
             self.assertEqual(output, expected_output)
 
 

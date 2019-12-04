@@ -1,9 +1,10 @@
 import unittest
-from file_extraction import extract_file
-from number_of_matches_won_by_each import matches_won_by_each
+from file_extraction import extract_data
+from number_of_matches_won_by_each import\
+    matches_won_by_each_team_over_all_seasons
 
 
-mock_data = extract_file('matches.csv')
+mock_data = extract_data('matches.csv')
 count = 0
 mock_matches = []
 for mockdata in mock_data:
@@ -12,7 +13,7 @@ for mockdata in mock_data:
         count += 1
 
 
-delivery_data = extract_file('deliveries.csv')
+delivery_data = extract_data('deliveries.csv')
 serial = 0
 mock_deliveries = []
 for ball_data in delivery_data:
@@ -35,7 +36,7 @@ class TestMatchWon(unittest.TestCase):
                                          'Delhi Daredevils': 2,
                                          'Gujarat Lions': 1}})]
         for inputs, expected_output in inputs_and_outputs:
-            output = matches_won_by_each(inputs)
+            output = matches_won_by_each_team_over_all_seasons(inputs)
             self.assertEqual(output, expected_output)
 
 

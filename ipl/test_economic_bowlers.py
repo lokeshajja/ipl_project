@@ -4,26 +4,19 @@ from most_econ_bowlers_2015 import calculate_economy_of_bowlers
 
 
 mock_data = extract_data('matches.csv')
-count = 0
 mock_matches = []
-for mockdata in mock_data:
-    if count < 15:
-        mock_matches.append(mockdata)
-        count += 1
-
+for mockdata in mock_data[:15]:
+    mock_matches.append(mockdata)
 
 delivery_data = extract_data('deliveries.csv')
-serial = 0
 mock_deliveries = []
-for ball_data in delivery_data:
-    if serial < 15:
-        mock_deliveries.append(ball_data)
-        serial += 1
+for ball_data in delivery_data[:15]:
+    mock_deliveries.append(ball_data)
 
 
-class TestPlotData(unittest.TestCase):
+class TestMostEconomicBowlers(unittest.TestCase):
 
-    def test_economy_of_bowlers(self):
+    def test_calculate_economy_of_bowlers(self):
 
         bowler_data = {'UT Yadav': {'balls': 60, 'runs': 40}, 'M Morkel':
                        {'balls': 120, 'runs': 100}, 'Shakib Al Hasan':
@@ -31,8 +24,10 @@ class TestPlotData(unittest.TestCase):
         economy_data = {'UT Yadav': 4, 'M Morkel': 5,
                         'Shakib Al Hasan': 5}
         inputs_and_outputs = [(bowler_data, economy_data)]
+
         for inputs, expected_output in inputs_and_outputs:
             output = calculate_economy_of_bowlers(inputs)
+
             self.assertEqual(output, expected_output)
 
 

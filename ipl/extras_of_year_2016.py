@@ -20,7 +20,6 @@ def compute_extra_runs(matches_of_2016, deliveries_data):
             teams_and_extra_runs[ball['bowling_team']] = \
                 teams_and_extra_runs.get(ball['bowling_team'], 0) +\
                 int(ball['extra_runs'])
-    print(teams_and_extra_runs)
 
     return teams_and_extra_runs
 

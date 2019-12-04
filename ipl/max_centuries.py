@@ -54,7 +54,7 @@ def ids_of_each_year(years_and_ids, matches):
 def compute_centuries_data_over_all_years(matches, deliveries):
 
     matches_played_per_season = compute_years_and_matches(matches)
-    centuries_of_each_season = compute_years_and_matches(matches)
+    seasons_and_match_ids = compute_years_and_matches(matches)
 
     season_and_ids = ids_of_each_year(matches_played_per_season, matches)
 
@@ -62,6 +62,6 @@ def compute_centuries_data_over_all_years(matches, deliveries):
                                                            deliveries)
     centuries_per_year =\
         calculate_centuries_of_all_seasons(matches, scores_of_all_seasons,
-                                           centuries_of_each_season)
+                                           seasons_and_match_ids)
 
     print(centuries_per_year)

@@ -12,3 +12,5 @@ ipl/__pycache__
 htmlcov
 .coverage
 ipl/trial.py
+ipl/matches_played_per_year.pyc
+ipl/most_econ_bowlers_2015.pyc

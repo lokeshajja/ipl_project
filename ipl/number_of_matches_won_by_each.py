@@ -1,33 +1,34 @@
 from matplotlib import pyplot as plt
 
 
-def plot_of_win_data(win_data):
+def plot_matches_won_by_each_team(winners_data):
 
-    win_teams = {}
-    for year in win_data.values():
+    winning_teams = {}
+    for year in winners_data.values():
         for team in year.keys():
-            if team not in win_teams:
-                win_teams[team] = []
-    year_list = []
-    for year, win_data in win_data.items():
-        year_list.append(year)
-        team_list = win_teams.keys()
+            if team not in winning_teams:
+                winning_teams[team] = []
+    seasons = []
+    for year, winners_data in winners_data.items():
+        seasons.append(year)
+        team_list = winning_teams.keys()
         team_list = list(team_list)
-        for team, wins in win_data.items():
+        for team, wins in winners_data.items():
             team_list.remove(team)
-            (win_teams[team]).append(wins)
+            (winning_teams[team]).append(wins)
         for team in team_list:
-            (win_teams[team]).append(0)
-    win_teams.popitem()
+            (winning_teams[team]).append(0)
+    winning_teams.popitem()
     all_team_names = []
     wins_per_year = []
-    for team_name, team_wins in win_teams.items():
+    for team_name, team_wins in winning_teams.items():
         all_team_names.append(team_name)
         wins_per_year.append(team_wins)
 
-    plt.bar(year_list, wins_per_year[0], label=all_team_names[0], width=0.5)
+    plt.bar(seasons, wins_per_year[0], label=all_team_names[0], width=0.5)
+
     for serial in range(1, len(all_team_names)):
-        plt.bar(year_list, wins_per_year[serial], width=0.5,
+        plt.bar(seasons, wins_per_year[serial], width=0.5,
                 bottom=wins_per_year[serial-1], label=all_team_names[serial])
     plt.xlabel('Years')
     plt.ylabel('Number of Wins Per Year')
@@ -35,21 +36,23 @@ def plot_of_win_data(win_data):
     plt.show()
 
 
-def matches_won_by_each(matches):
+def matches_won_by_each_team_over_all_seasons(matches):
 
-    winner_data = {}
-    for match_data in matches:
-        if match_data['winner'] == 'Rising Pune Supergiant':
-            match_data['winner'] = 'Rising Pune Supergiants'
+    number_of_wins_per_season = {}
+    for match in matches:
+        if match['winner'] == 'Rising Pune Supergiant':
+            match['winner'] = 'Rising Pune Supergiants'
 
-        if match_data['season'] not in winner_data:
-            winner_data[match_data['season']] = {}
+        if match['season'] not in number_of_wins_per_season:
+            number_of_wins_per_season[match['season']] = {}
 
-        winner_data[match_data['season']][match_data['winner']] = \
-            (winner_data[match_data['season']]).get(match_data['winner'], 0)+1
-    return winner_data
+        number_of_wins_per_season[match['season']][match['winner']] = \
+            (number_of_wins_per_season[match['season']]).get(match['winner'],
+                                                             0)+1
+    return number_of_wins_per_season
 
 
-def compute_and_plot_of_win_data(matches):
-    win_data = matches_won_by_each(matches)
-    plot_of_win_data(win_data)
+def compute_and_plot_matches_won_by_each_team_over_all_seasons(matches):
+    matches_won_by_each_team = \
+        matches_won_by_each_team_over_all_seasons(matches)
+    plot_matches_won_by_each_team(matches_won_by_each_team)

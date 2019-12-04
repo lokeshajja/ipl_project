@@ -4,27 +4,21 @@ from number_of_matches_won_by_each import\
     matches_won_by_each_team_over_all_seasons
 
 
-mock_data = extract_data('matches.csv')
-count = 0
+mock_matches_data = extract_data('matches.csv')
 mock_matches = []
-for mockdata in mock_data:
-    if count < 15:
-        mock_matches.append(mockdata)
-        count += 1
+for mockdata in mock_matches_data[:15]:
+    mock_matches.append(mockdata)
 
 
-delivery_data = extract_data('deliveries.csv')
-serial = 0
+deliveries = extract_data('deliveries.csv')
 mock_deliveries = []
-for ball_data in delivery_data:
-    if serial < 50:
-        mock_deliveries.append(ball_data)
-        serial += 1
+for ball_data in deliveries[:50]:
+    mock_deliveries.append(ball_data)
 
 
-class TestMatchWon(unittest.TestCase):
+class TestMatchWonOverAllSeasons(unittest.TestCase):
 
-    def test_matches_won_by_each(self):
+    def test_matches_won_by_each_over_all_seasons(self):
 
         inputs_and_outputs = [(mock_matches,
                                {'2017': {'Sunrisers Hyderabad': 2,

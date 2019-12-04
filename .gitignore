@@ -9,3 +9,6 @@ ipl/__pycache__
 .vscode/settings.json
 .jason
 .vscode
+htmlcov
+.coverage
+ipl/trial.py

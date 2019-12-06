@@ -1,3 +1,9 @@
+import logging
+
+logging.basicConfig(filename='ipl_project.log', level=logging.INFO,
+                    format='%(asctime)s:%(module)s:%(funcName)s:%(message)s')
+
+
 def compute_years_and_matches(matches):
 
     ids_yearwise = {}
@@ -64,4 +70,4 @@ def compute_centuries_data_over_all_years(matches, deliveries):
         calculate_centuries_of_all_seasons(matches, scores_of_all_seasons,
                                            seasons_and_match_ids)
 
-    print(centuries_per_year)
+    logging.info(centuries_per_year)

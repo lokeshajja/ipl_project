@@ -5,7 +5,7 @@ logging.basicConfig(filename='ipl_project.log', level=logging.INFO,
                     format='%(asctime)s:%(module)s:%(funcName)s:%(message)s')
 
 
-def compute_number_of_matches_per_year():
+def compute_and_plot_number_of_matches_per_year():
 
     query = '''select season,count(season)
     from matches

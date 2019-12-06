@@ -1,0 +1,30 @@
+﻿CREATE TABLE public.deliveries
+(
+  match_id integer,
+  inning integer,
+  batting_team character varying,
+  bowling_team character varying,
+  over integer,
+  ball integer,
+  batsman character varying,
+  non_striker character varying,
+  bowler character varying,
+  is_super_over integer,
+  wide_runs integer,
+  bye_runs integer,
+  legbye_runs integer,
+  noball_runs integer,
+  penalty_runs integer,
+  batsman_runs integer,
+  extra_runs integer,
+  total_runs integer,
+  player_dismissed character varying,
+  dismissal_kind character varying,
+  fielder character varying
+  
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.deliveries
+  OWNER TO postgres;

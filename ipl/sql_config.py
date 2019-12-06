@@ -1,6 +1,6 @@
 import psycopg2
 import logging
-logging.basicConfig(filename='ipl_project.log', level=logging.DEBUG,
+logging.basicConfig(filename='ipl_project.log', level=logging.INFO,
                     format='%(asctime)s:%(module)s:%(funcName)s:%(message)s')
 
 
@@ -21,6 +21,6 @@ def sql(statement):
     finally:
         if conn is not None:
             conn.close()
-            logging.debug('Database connection closed.')
+            logging.info('Database connection closed.')
 
     return output

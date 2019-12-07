@@ -9,7 +9,7 @@ def sql(statement):
     conn = None
     try:
         conn = psycopg2.connect(host='localhost',
-                                database='postgres',
+                                database='Ipl_project',
                                 user='postgres',
                                 password='121')
         cur = conn.cursor()

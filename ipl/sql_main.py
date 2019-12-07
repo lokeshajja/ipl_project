@@ -5,6 +5,8 @@ from sql_number_of_matches_won import \
 from sql_extras_of_2016 import compue_and_plot_extras_of_2016
 from sql_most_economic_bowlers_of_2015 import \
     sql_most_economic_bowlers_2015
+from sql_centuries_by_year import \
+    centuries_by_season
 
 
 def main():
@@ -16,6 +18,8 @@ def main():
     compue_and_plot_extras_of_2016()
 
     sql_most_economic_bowlers_2015()
+
+    centuries_by_season()
 
 
 if __name__ == "__main__":
